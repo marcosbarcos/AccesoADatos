@@ -1,0 +1,1 @@
+Alumno [nia=1233454543, nombre=gonxu, apellidos=rubio, genero=m, fecha_nacimiento=2000-05-20, ciclo=kqweow, curso=eqweq, grupo=qeqweqw]

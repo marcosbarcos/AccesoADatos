@@ -1,0 +1,1 @@
+Alumno [nia=1111111111, nombre=marcos, apellidos=herrero, genero=m, fecha_nacimiento=2000-08-10, ciclo=e, curso=e, grupo=e]
