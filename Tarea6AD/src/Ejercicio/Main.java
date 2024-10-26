@@ -21,6 +21,7 @@ public static void main(String[] args) {
 	do {
 		generarMenu();
 		respuesta = entrada.nextInt();
+		entrada.nextLine();
 		switch(respuesta) {
 		case 1:
 			String ruta, nombre;
@@ -29,15 +30,22 @@ public static void main(String[] args) {
 			System.out.println("Dame el nombre del fichero");
 			nombre = entrada.nextLine();
 			enUso = new File(ruta+nombre);
+		break;
 		case 2:
-			fich.imprimirListaFicheros();
-			fich.seleccionarFichero();
+			enUso = fich.seleccionarFichero();
+		break;
 		case 3:
 			Alumno a = Alumno.crearAlumno();
 			fich.cargarFichero(enUso, a);
-		case 4:
-			fich.imprimirFichero(enUso);
 		break;
+		case 4:
+			if (enUso == null) {
+                System.out.println("Primero debes seleccionar o crear un fichero.");
+            } 
+			else {
+			fich.imprimirFichero(enUso);	
+			}
+        break;
 		}
 		
 			

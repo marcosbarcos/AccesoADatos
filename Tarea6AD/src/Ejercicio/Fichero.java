@@ -16,11 +16,10 @@ public class Fichero {
 	Scanner entrada = new Scanner(System.in);
 	
 	public void cargarFichero(File f, Alumno a) {
-		FileWriter fos = null;
 		PrintWriter pw = null;
 		try {
+			FileWriter fos = new FileWriter(f);
 			if (!ficheros.contains(f)) {
-				fos = new FileWriter(f);
 				pw = new PrintWriter(fos);
 				pw.println(a.toString());
 				ficheros.add(f);
@@ -30,20 +29,13 @@ public class Fichero {
 				pw = new PrintWriter(fos);
 				pw.println(a.toString());
 			}
+			fos.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			if(pw != null) {
 				pw.close();
-			}
-			if(fos != null) {
-				try {
-					fos.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				}
 			}
 		}
@@ -57,6 +49,7 @@ public class Fichero {
 	}
 	
 	public File seleccionarFichero() {
+		imprimirListaFicheros();
 		String ficheroSolicitado;
 		System.out.println("Que fichero quieres seleccionar? Escriba el nombre:");
 		ficheroSolicitado = entrada.nextLine();
@@ -64,24 +57,22 @@ public class Fichero {
 			if (fi.getName().equals(ficheroSolicitado)) {
 				return fi;
 			}
-			else {
-				System.out.println("Fichero no encontrado, pruebe de nuevo");
-				seleccionarFichero();
-			}
 		}
+		System.out.println("Fichero no encontrado, pruebe de nuevo");
+		seleccionarFichero();
 		return null;
 	}
 	
 	public void imprimirFichero(File e) {
-		FileReader fr = null;
 		BufferedReader br = null;
 		try {
-			fr = new FileReader(e);
+			FileReader fr = new FileReader(e);
 			br = new BufferedReader(fr);
 			String linea;
 			while((linea = br.readLine()) != null) {
 				System.out.println(linea);
 			}
+			fr.close();
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -92,14 +83,6 @@ public class Fichero {
 			if (br != null) {
 				try {
 					br.close();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-			if(fr != null) {
-				try {
-					fr.close();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
