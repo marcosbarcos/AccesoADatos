@@ -1,0 +1,1 @@
+Alumno [nia=2, nombre=Ana, apellidos=García, genero=F, fecha_nacimiento=2001-02-02, ciclo=Ciclo2, curso=Curso2, grupo=Grupo2]

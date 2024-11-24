@@ -1,0 +1,1 @@
+Alumno [nia=2132214, nombre=kfrssf, apellidos=sdfasfs, genero=m, fecha_nacimiento=2000-08-10, ciclo=wfds, curso=sdfdsf, grupo=sf]

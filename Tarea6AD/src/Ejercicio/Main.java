@@ -35,6 +35,10 @@ public static void main(String[] args) {
 			enUso = fich.seleccionarFichero();
 		break;
 		case 3:
+			if (enUso == null) {
+				System.out.println("No hay ningun fichero seleccionado");
+				break;
+			}
 			Alumno a = Alumno.crearAlumno();
 			fich.cargarFichero(enUso, a);
 		break;
@@ -51,5 +55,6 @@ public static void main(String[] args) {
 			
 	}while(respuesta <= 4 && respuesta >= 1);
 		
+	
 }
 }

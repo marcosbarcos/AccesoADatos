@@ -1,0 +1,1 @@
+Alumno [nia=23232332, nombre=sdfsdf, apellidos=dsfdsf, genero=m, fecha_nacimiento=2000-08-10, ciclo=e, curso=ew, grupo=w]

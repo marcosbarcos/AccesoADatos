@@ -44,7 +44,7 @@ public class Fichero {
 		int contador = 0;
 		for(File fi : ficheros) {
 			contador++;
-			System.out.println(contador + " " + fi.getName());
+			System.out.println(fi.getName());
 		}
 	}
 	
@@ -59,7 +59,6 @@ public class Fichero {
 			}
 		}
 		System.out.println("Fichero no encontrado, pruebe de nuevo");
-		seleccionarFichero();
 		return null;
 	}
 	
