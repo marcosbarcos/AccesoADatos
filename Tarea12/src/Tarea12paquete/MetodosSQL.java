@@ -1,6 +1,7 @@
 package Tarea12paquete;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.FileOutputStream;
@@ -168,6 +169,7 @@ public class MetodosSQL {
 		try(PreparedStatement sql = conexion.prepareStatement("")) {
 			sql.setString(1, nombreNuevo);
 			sql.setInt(2, niaAlumno);
+			System.out.println("Modificado con exito");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -180,6 +182,7 @@ public class MetodosSQL {
 		String borrar = "DELETE FROM alumno WHERE NIA = ?";
 		try(PreparedStatement ps =  conexion.prepareStatement(borrar)) {
 			ps.setInt(1, niaAlumno);
+			System.out.println("Borrado con exito");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -192,6 +195,7 @@ public class MetodosSQL {
 		String borrar = "DELETE FROM alumno WHERE Curso = ?";
 		try(PreparedStatement ps =  conexion.prepareStatement(borrar)) {
 			ps.setString(1, cursoAlumno);
+			System.out.println("Borrados con exito");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -199,43 +203,57 @@ public class MetodosSQL {
 	}
 	
 	public void guardarenJson() {
-		List<Alumno> listaAlumnos = new ArrayList<Alumno>();
-		Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat("yyyy-MM-dd").create();
-		String sql = "SELECT NIA , Nombre, Apellidos, Genero, FechaDeNacimiento, Ciclo, Curso, Grupo FROM alumno";
-		try(Statement consulta = conexion.createStatement()) {
-			ResultSet resultado = consulta.executeQuery(sql);
-			while(resultado.next()) {
-				int nia = resultado.getInt("NIA");
-				String nombre = resultado.getString("Nombre");
-				String apellidos = resultado.getString("Apellidos");
-				String genero = resultado.getString("Genero");
-				Date fecha = resultado.getDate("FechaDeNacimiento");
-				String ciclo = resultado.getString("Ciclo");
-				String curso = resultado.getString("Curso");
-				int grupo = resultado.getInt("Grupo");
-				Alumno nuevo = new Alumno(nia, nombre, apellidos, genero, fecha, ciclo, curso, grupo);
-				listaAlumnos.add(nuevo);
+		List<Grupo> gruposLista = new ArrayList<Grupo>();
+		try(Statement sentencia = conexion.createStatement()) {
+			String grupos = "SELECT codigo, nombre FROM grupo";
+			ResultSet result = sentencia.executeQuery(grupos);
+			while (result.next()) {
+				Grupo a = new Grupo(result.getInt("codigo"), result.getString("nombre"));
+				gruposLista.add(a);
 			}
-			try(FileWriter fw = new FileWriter("alumnitos.json")) {
-				gson.toJson(listaAlumnos, fw);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		try(Statement sentencia = conexion.createStatement()) {
+			for(int i = 0; i < gruposLista.size(); i++) {
+				String alumnosGrupo = "SELECT NIA, Nombre, Apellidos, Genero, FechaDeNacimiento, Ciclo, Curso, Grupo FROM alumno WHERE Grupo = " + (i+1);
+				ResultSet result = sentencia.executeQuery(alumnosGrupo);
+				while (result.next()) {
+					int nia = result.getInt("NIA");
+					String nombre = result.getString("Nombre");
+					String apellidos = result.getString("Apellidos");
+					String genero = result.getString("Genero");
+					Date fecha = result.getDate("FechaDeNacimiento");
+					String ciclo = result.getString("Ciclo");
+					String curso = result.getString("Curso");
+					int grupo = result.getInt("Grupo");
+					Alumno nuevo = new Alumno(nia, nombre, apellidos, genero, fecha, ciclo, curso, grupo);
+					gruposLista.get(i).añadiraLista(nuevo);
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat("yyyy-MM-dd").create();
+		try(BufferedWriter bf = new BufferedWriter(new FileWriter("alumnitos.json"))) {
+			gson.toJson(gruposLista, bf);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(gruposLista.get(0).toString());
 	}
 	
 	public void leerdeJson() {
 		try(BufferedReader br = new BufferedReader(new FileReader("alumnitos.json"))) {
 			Gson gson = new Gson();
-			Type tipoRespuesta = new TypeToken<ArrayList<Alumno>>() {}.getType();
-			ArrayList<Alumno> respuesta = gson.fromJson(br, tipoRespuesta);
-				for (Alumno alumno : respuesta) {
-					System.out.println(alumno.toString());
+			Type tipoRespuesta = new TypeToken<ArrayList<Grupo>>() {}.getType();
+			ArrayList<Grupo> respuesta = gson.fromJson(br, tipoRespuesta);
+				for (Grupo grupo : respuesta) {
+					System.out.println(grupo.toString());
 				}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

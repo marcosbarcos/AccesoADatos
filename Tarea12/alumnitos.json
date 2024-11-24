@@ -1,162 +1,39 @@
 [
   {
-    "nia": 123456,
-    "nombre": "marcos",
-    "apellidos": "herrero",
-    "genero": "m",
-    "fecha_nacimiento": "2000-08-10",
-    "ciclo": "asdas",
-    "curso": "dww",
-    "grupo": 2
+    "codigo": 1,
+    "nombre": "Primero",
+    "alumnos": [
+      {
+        "nia": 333333,
+        "nombre": "Pepe",
+        "apellidos": "Pepon",
+        "genero": "m",
+        "fecha_nacimiento": "2002-11-24",
+        "ciclo": "Dam",
+        "curso": "Dedo",
+        "grupo": 1
+      }
+    ]
   },
   {
-    "nia": 333333,
-    "nombre": "Pepe",
-    "apellidos": "Pepon",
-    "genero": "m",
-    "fecha_nacimiento": "2002-11-24",
-    "ciclo": "Dam",
-    "curso": "Dedo",
-    "grupo": 1
+    "codigo": 2,
+    "nombre": "Segundo",
+    "alumnos": [
+      {
+        "nia": 123456,
+        "nombre": "marcos",
+        "apellidos": "herrero",
+        "genero": "m",
+        "fecha_nacimiento": "2000-08-10",
+        "ciclo": "asdas",
+        "curso": "dww",
+        "grupo": 2
+      }
+    ]
   },
   {
-    "nia": 123456,
-    "nombre": "marcos",
-    "apellidos": "herrero",
-    "genero": "m",
-    "fecha_nacimiento": "2000-08-10",
-    "ciclo": "asdas",
-    "curso": "dww",
-    "grupo": 2
-  },
-  {
-    "nia": 333333,
-    "nombre": "Pepe",
-    "apellidos": "Pepon",
-    "genero": "m",
-    "fecha_nacimiento": "2002-11-24",
-    "ciclo": "Dam",
-    "curso": "Dedo",
-    "grupo": 1
-  },
-  {
-    "nia": 123456,
-    "nombre": "marcos",
-    "apellidos": "herrero",
-    "genero": "m",
-    "fecha_nacimiento": "2000-08-10",
-    "ciclo": "asdas",
-    "curso": "dww",
-    "grupo": 2
-  },
-  {
-    "nia": 333333,
-    "nombre": "Pepe",
-    "apellidos": "Pepon",
-    "genero": "m",
-    "fecha_nacimiento": "2002-11-24",
-    "ciclo": "Dam",
-    "curso": "Dedo",
-    "grupo": 1
-  },
-  {
-    "nia": 123456,
-    "nombre": "marcos",
-    "apellidos": "herrero",
-    "genero": "m",
-    "fecha_nacimiento": "2000-08-10",
-    "ciclo": "asdas",
-    "curso": "dww",
-    "grupo": 2
-  },
-  {
-    "nia": 333333,
-    "nombre": "Pepe",
-    "apellidos": "Pepon",
-    "genero": "m",
-    "fecha_nacimiento": "2002-11-24",
-    "ciclo": "Dam",
-    "curso": "Dedo",
-    "grupo": 1
-  },
-  {
-    "nia": 123456,
-    "nombre": "marcos",
-    "apellidos": "herrero",
-    "genero": "m",
-    "fecha_nacimiento": "2000-08-10",
-    "ciclo": "asdas",
-    "curso": "dww",
-    "grupo": 2
-  },
-  {
-    "nia": 333333,
-    "nombre": "Pepe",
-    "apellidos": "Pepon",
-    "genero": "m",
-    "fecha_nacimiento": "2002-11-24",
-    "ciclo": "Dam",
-    "curso": "Dedo",
-    "grupo": 1
-  },
-  {
-    "nia": 123456,
-    "nombre": "marcos",
-    "apellidos": "herrero",
-    "genero": "m",
-    "fecha_nacimiento": "2000-08-10",
-    "ciclo": "asdas",
-    "curso": "dww",
-    "grupo": 2
-  },
-  {
-    "nia": 333333,
-    "nombre": "Pepe",
-    "apellidos": "Pepon",
-    "genero": "m",
-    "fecha_nacimiento": "2002-11-24",
-    "ciclo": "Dam",
-    "curso": "Dedo",
-    "grupo": 1
-  },
-  {
-    "nia": 123456,
-    "nombre": "marcos",
-    "apellidos": "herrero",
-    "genero": "m",
-    "fecha_nacimiento": "2000-08-10",
-    "ciclo": "asdas",
-    "curso": "dww",
-    "grupo": 2
-  },
-  {
-    "nia": 333333,
-    "nombre": "Pepe",
-    "apellidos": "Pepon",
-    "genero": "m",
-    "fecha_nacimiento": "2002-11-24",
-    "ciclo": "Dam",
-    "curso": "Dedo",
-    "grupo": 1
-  },
-  {
-    "nia": 123456,
-    "nombre": "marcos",
-    "apellidos": "herrero",
-    "genero": "m",
-    "fecha_nacimiento": "2000-08-10",
-    "ciclo": "asdas",
-    "curso": "dww",
-    "grupo": 2
-  },
-  {
-    "nia": 333333,
-    "nombre": "Pepe",
-    "apellidos": "Pepon",
-    "genero": "m",
-    "fecha_nacimiento": "2002-11-24",
-    "ciclo": "Dam",
-    "curso": "Dedo",
-    "grupo": 1
+    "codigo": 3,
+    "nombre": "Tercero",
+    "alumnos": []
   }
 ]
