@@ -244,7 +244,6 @@ public class MetodosSQL {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(gruposLista.get(0).toString());
 	}
 	
 	public void leerdeJson() {
